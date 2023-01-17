@@ -1,0 +1,28 @@
+<ul>
+<li>Name: {{single_pet.name}}</li>
+<li>Species: {{single_pet.species}}</li>
+<li>Age {{single_pet.age}}</li>
+<li>Notes: {{single_pet.notes}}</li>
+<img style="width: 200px;" src="{{single_pet.photo_url}}" alt="">
+</ul>
+
+
+<form id="edit-pet" method="POST">
+    {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+  
+    {% for field in form
+           if field.widget.input_type != 'hidden' %}
+  
+      <p>
+        {{ field.label }}
+        {{ field }}
+  
+        {% for error in field.errors %}
+          {{ error }}
+        {% endfor %}
+      </p>
+  
+    {% endfor %}
+  
+    <button type="submit">Submit</button>
+  </form>

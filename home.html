@@ -1,0 +1,16 @@
+{% for pet in pets%}
+<div style="width:80vw; border-bottom: solid 2px black;">
+
+<img style="width:200px" src="{{pet.photo_url}}" alt="">
+<h3 style="padding-left:15px;"><a href="/{{pet.id}}">{{pet.name}}</a></h3>
+<ol>
+    <li>Species: {{pet.species}}</li>
+    <li>Age {{pet.age}}</li>
+    <li>Notes: {{pet.notes}}</li>
+    <li>Available: {{pet.available}}</li>
+</ol>
+</div>
+
+{% endfor %}   
+
+<a style="margin-top: 30px; font-size: 25px;" href="/add">Add New Animal</a>
